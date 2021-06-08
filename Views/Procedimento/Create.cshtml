@@ -1,0 +1,89 @@
+@using SisCaVet.Models
+@model Procedimento
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
+
+@{
+    Layout= "~/Views/Shared/Layout.cshtml";
+}
+
+<!-- Barra de navegação (Home > Procedimento > Cadastro) -->
+<nav class="green lighten-3">
+    <div class="nav-wrapper container">
+
+        <!-- Logo Titulo -->
+        <a href="/Home/Index" class="brand-logo right">SisCaVet</a>
+        
+        <div class="row">
+            <div class="col s0 m0 l1"></div>
+            <div class="col s12 m12 l11">
+                    
+                <!-- Botão de Menu que não aparece em tela grande -->
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                    <i class="material-icons">menu</i>
+                </a>
+                <div>
+                    <a href="/Home/Index" class="breadcrumb">Home</a>
+                    <a href="/Procedimento/Index" class="breadcrumb">Procedimento</a>
+                    <a href="#!" class="breadcrumb">Procedimento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Página -->
+<div class="row">
+    <div class="col s0 m0 l2"></div>
+    <div class="col s12 m12 l10">
+        
+        <div class="row valign-wrapper">
+            <div class="col s10">
+
+                <form  action="/Procedimento/Create" method="post">
+                        <h2 class="green-text text-lighten-3">Cadastro Procedimento</h2>
+                        <br/>  
+
+                        <div class="row valign-wrapper">
+                            <div class="col s6">
+
+                                <!-- Campo Descrição --> 
+                                <div class="row">                           
+                                    <div class="col s12">
+                                        <p>Descrição</p>
+                                        <input placeholder="Descrição" asp-for="Descricao"/>
+                                        <span asp-validation-for="Descricao"></span>
+                                    </div>
+                                </div>  
+
+                                <!-- Campo Valor --> 
+                                <div class="row">
+                                    <div class="col s12">
+                                        <p>Valor</p>
+                                        <input placeholder="Valor" asp-for="Valor"/>
+                                        <span asp-validation-for="Valor"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Botão -->
+                                <div class="row">
+                                    <div class="col s5">
+                                        <button class="btn waves-effect waves-light">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s5"></div>
+
+                            
+                        </div>
+
+                </form>
+            </div>
+
+            <div class="col s1"></div>
+        </div>
+    </div>
+</div>
+
+
+    

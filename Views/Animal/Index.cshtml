@@ -1,0 +1,106 @@
+@using SisCaVet.Models
+
+@model List<Procedimento>
+
+@{
+    Layout= "~/Views/Shared/Layout.cshtml";
+}
+
+<!-- Barra de navegação (Home > Animal      SisCaVet) -->
+<nav class="top-nav green lighten-3">
+     <div class="nav-wrapper container">
+          <!-- Logo Titulo -->
+          <a href="/Home/Index" class="brand-logo right">SisCaVet</a>
+          <!-- Botão de Menu que não aparece em tela grande -->
+          <div class="row">
+               <div class="col s0 m0 l1"></div>
+               <div class="col s12 m12 l11">
+                    <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                         <i class="material-icons">menu</i>
+                    </a>
+                    <div>
+                         <a href="/Home/Index" class="breadcrumb">Home</a>
+                         <a href="#!" class="breadcrumb">Animal</a>
+                    </div>
+               </div>
+          </div>
+     </div>
+</nav>
+<div class="row">
+    <div class="col s0 m0 l2"></div>
+    <div class="col s12 m12 l10">
+        
+        <div class="row valign-wrapper">
+            <div class="col s10">
+            
+                
+                <h2 class="green-text text-lighten-3">Animal</h2>
+
+                <div class="row valign-wrapper">
+                    <div class="col s12 m9 l10">
+
+                            <!-- Botão icone add -->
+                            <div class="right-align">
+                                <a class="btn btn-small waves-effect waves-light" href="/Animal/Create"><i class="material-icons">add</i></a>
+                            </div>
+
+                        <!-- Tabela Procedimentos -->
+                        <table class="striped centered">
+                            <thead>
+                                <tr>
+                                        <th>Nome</th>
+                                        <th>Dono</th>
+                                        <th>Idade</th>
+                                        <th>Peso</th>
+                                        <th>Raça</th>
+                                        <th>Especie</th>
+                                        <th></th>
+                                        <th></th>
+                                </tr>
+                            </thead>
+                            @foreach(var animal in Model)
+                            {
+                                <tr>
+                                        <td>                   
+                                            @animal.Nome
+                                        </td>                
+                                        <td>
+                                            @animal.Cliente
+                                        </td>
+                                        <td>                   
+                                            @animal.Idade
+                                        </td>                
+                                        <td>
+                                            @animal.Peso
+                                        </td>
+                                        <td>                   
+                                            @animal.Raca
+                                        </td>                
+                                        <td>
+                                            @animal.Especie
+                                        </td>
+                                        <td>
+                                            <a class="" href="/Animal/Update/@animal.Id"><i class="material-icons">edit</i></a>
+                                        </td>  
+                                        <td>
+                                            <a class="" href="/Animal/Delete/@animal.Id"><i class="material-icons">delete</i></a>
+                                        </td>        
+                                </tr>
+                            }          
+                        </table>
+
+                        </div>
+                        <div class="col hide-on-small-only m2 l1"></div>
+                </div>
+
+            
+
+            
+            </div>
+
+            <div class="col s1"></div>
+        </div>
+    </div>
+</div>
+
+
