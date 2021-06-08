@@ -1,0 +1,64 @@
+@using SisCaVet.Models
+@model Procedimento
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
+
+@{
+    Layout= "~/Views/Shared/Layout.cshtml";
+}
+
+<!-- Barra de navegação (Home > Procedimento > Editar) -->
+<nav class="green lighten-3">
+    <div class="nav-wrapper container">
+        <div class="col s12">
+            <a href="#!" class="breadcrumb">Home</a>
+            <a href="/Procedimento" class="breadcrumb">Procedimento</a>
+            <a href="#!" class="breadcrumb">Editar</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Página -->
+<div class="container">
+
+    <form  action="/Procedimento/Update/@Model.Id" method="post">
+            <h2 class="green-text text-lighten-3">Cadastro Procedimento</h2>
+            <br/>  
+
+            <div class="row valign-wrapper">
+                <div class="col s6">
+
+                    <!-- Campo Descrição --> 
+                    <div class="row">                           
+                        <div class="col s12">
+                            <p>Descrição</p>
+                            <input placeholder="Descrição" asp-for="Descricao"/>
+                            <span asp-validation-for="Descricao"></span>
+                        </div>
+                    </div>  
+
+                    <!-- Campo Valor --> 
+                    <div class="row">
+                        <div class="col s12">
+                            <p>Valor</p>
+                            <input placeholder="Valor" asp-for="Valor"/>
+                            <span asp-validation-for="Valor"></span>
+                        </div>
+                    </div>
+
+                    <!-- Botão -->
+                    <div class="row">
+                        <div class="col s5">
+                            <button class="btn waves-effect waves-light">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s5"></div>
+
+                
+            </div>
+
+    </form>
+</div>
+
+    
